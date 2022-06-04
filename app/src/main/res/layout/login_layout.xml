@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".LogInActivity">
+
+    <LinearLayout
+        android:id="@+id/linear_log_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/logIn_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/login_shape"
+            android:elevation="155dp"
+            android:enabled="true"
+            android:onClick="onClickSignIn"
+            android:text="@string/login"
+            android:textColor="#550011"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:ignore="TouchTargetSizeCheck" />
+
+        <View
+            android:id="@+id/divider3"
+            android:layout_width="140dp"
+            android:layout_height="1dp"
+            android:layout_gravity="center"
+            android:background="@drawable/signup_shape"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/register_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/signup_shape"
+            android:onClick="onClickSignUp"
+            android:text="@string/register"
+            android:textColor="#FFCC44"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:ignore="TouchTargetSizeCheck" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editText_logIn_email"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/login_shape"
+        android:ems="10"
+        android:hint="@string/email"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName|textEmailAddress"
+        android:minHeight="48dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="0dp"
+        android:textColor="@color/black"
+        android:textColorHint="#614444"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/editText_logIn_password"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/login_shape"
+        android:ems="10"
+        android:hint="@string/password"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName|textPassword"
+        android:minHeight="48dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="0dp"
+        android:textAlignment="textStart"
+        android:textColor="@color/black"
+        android:textColorHint="#614444"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_logIn_email"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/bStart"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/login_shape"
+        android:onClick="onClickStart"
+        android:text="@string/start"
+        android:textColor="#550011"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/tvUserEmail"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="@+id/tvUserEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserEmail"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <Button
+        android:id="@+id/bOut"
+        android:layout_width="wrap_content"
+        android:layout_height="37dp"
+        android:layout_marginTop="44dp"
+        android:background="@drawable/login_shape"
+        android:onClick="onClickSignOut"
+        android:text="@string/signOut"
+        android:textColor="#550011"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/bStart"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="@+id/bStart"
+        app:layout_constraintTop_toBottomOf="@+id/bStart"
+        tools:ignore="TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/tvUserEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="164dp"
+        android:layout_height="161dp"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/logo"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "11137604018",
+    "firebase_url": "https://city-go-30ca1-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "city-go-30ca1",
+    "storage_bucket": "city-go-30ca1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11137604018:android:f8d1fedc2de49551a5ecab",
+        "android_client_info": {
+          "package_name": "com.technomads.citygo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11137604018-j98sp8nafuqvavfql35ns9m4d5325g9d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPzQ05L36yU77yze9-cDbanbNE6Ygkwps"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "11137604018-j98sp8nafuqvavfql35ns9m4d5325g9d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

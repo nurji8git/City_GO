@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FFFFFF"
+    tools:context=".AllEvents">
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/search_in_events"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/search_button" />
+
+        <EditText
+            android:id="@+id/search_field_in_events"
+            android:layout_width="229dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/search_field"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/add_event_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/events_recycler"
+            android:layout_width="312dp"
+            android:layout_height="match_parent"
+            android:background="#B5B5B5"
+            android:contentDescription="@string/events_recycler" />
+
+        <Button
+            android:id="@+id/show_events2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/ic_arrow_btn"
+            android:contentDescription="@string/show_events"
+            android:rotation="-90"
+            android:rotationX="0"
+            android:rotationY="0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/add_event_layout"
+        android:layout_width="359dp"
+        android:layout_height="234dp"
+        android:background="#A8A8A8"
+        android:contentDescription="@string/add_event_layout"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/add_new_event"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/event_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Event title"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#4E342E" />
+
+        <EditText
+            android:id="@+id/event_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Event time"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#4E342E" />
+
+        <EditText
+            android:id="@+id/event_desc"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:ems="10"
+            android:hint="Event description"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#4E342E" />
+
+        <Button
+            android:id="@+id/add_event_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/add_new_event"
+        android:layout_width="128dp"
+        android:layout_height="43dp"
+        android:layout_weight="1"
+        android:text="@string/add_new_event"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
