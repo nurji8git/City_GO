@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     {
         show_events = findViewById(R.id.show_events);
     }
+
+    //функция для показа всех евентов
     public void onShowEvents(View view)
     {
         System.exit(0);

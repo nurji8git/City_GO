@@ -74,6 +74,8 @@ public class AllEvents extends AppCompatActivity {
         });
         new_event_id = list.size();
     }
+
+    //Инициализация всех переменных, например присвоение переменной кнопку
     private void init()
     {
         menu_layout = findViewById(R.id.menu_linear_layout);
@@ -93,16 +95,19 @@ public class AllEvents extends AppCompatActivity {
         recyclerView = findViewById(R.id.events_recycler);
     }
 
+    //Переход к картам
     private void onShowMap(View view)
     {
         startActivity(new Intent(this, MainActivity.class));
     }
 
+    //Функция раскрытия окошка добавления нового евента
     private void addNewEvent(View view)
     {
         add_event_layout.setVisibility(View.VISIBLE);
     }
 
+    //Функция добавления нового евента
     private void setAddEventSubmit(View view)
     {
         if(new_event_title.getText().toString() != "" && new_event_time.getText().toString() != "" && new_event_desc.getText().toString() != "")
@@ -122,6 +127,7 @@ public class AllEvents extends AppCompatActivity {
         add_event_layout.setVisibility(View.GONE);
     }
 
+    //Функция для поиска евента
     private void searchEvent(View view)
     {
         ArrayList<Event> search_list = new ArrayList<>();
@@ -138,6 +144,7 @@ public class AllEvents extends AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
     }
 
+    //Функция для возврата назад, после поиска, восстанавливает список евентов
     private void backSearch(View view)
     {
         search_event_btn.setText(R.string.search_button);
@@ -146,6 +153,7 @@ public class AllEvents extends AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
     }
 
+    //Функция для раскрытия меню
     private void menu(View view)
     {
         if(menu_layout.getVisibility() != View.VISIBLE)
@@ -158,12 +166,14 @@ public class AllEvents extends AppCompatActivity {
         }
     }
 
+    //Функция для выхода из аккаунта
     private void signOut(View view)
     {
         FirebaseAuth.getInstance().signOut();
         System.exit(0);
     }
 
+    //Функция для выхода из приложения
     private void exit(View view)
     {
         finish();

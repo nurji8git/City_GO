@@ -70,6 +70,7 @@ public class LogInActivity extends AppCompatActivity {
         }
     }
 
+    //Функция для регистрации
     public void onClickSignUp(View view)
     {
         if(!TextUtils.isEmpty(editText_logIn_email.getText().toString()) && !TextUtils.isEmpty(getEditText_logIn_password.getText().toString()))
@@ -90,6 +91,8 @@ public class LogInActivity extends AppCompatActivity {
         }
 
     }
+
+    //Функция для входа в аккаунт
     public void onClickSignIn(View view)
     {
         if(!TextUtils.isEmpty(editText_logIn_email.getText().toString()) && !TextUtils.isEmpty(getEditText_logIn_password.getText().toString()))
@@ -109,12 +112,14 @@ public class LogInActivity extends AppCompatActivity {
         }
     }
 
+    //Функция для выхода из аккаунта
     public void onClickSignOut(View view)
     {
         FirebaseAuth.getInstance().signOut();
         showSignedOut();
     }
 
+    //Функция при выходе из аккаунта
     private void showSignedOut()
     {
         log_reg_linear.setVisibility(View.VISIBLE);
@@ -128,6 +133,7 @@ public class LogInActivity extends AppCompatActivity {
         bOut.setVisibility(View.GONE);
     }
 
+    //Функция при входе в аккаунт, происходит в одном же актвити, просто состояние кнопок меняется на GONE
     private void showSignedIn()
     {
         FirebaseUser user = mAuth.getCurrentUser();
@@ -152,12 +158,14 @@ public class LogInActivity extends AppCompatActivity {
             }
     }
 
+    //Функция перехода в activity AllEvents
     public void onClickStart(View view)
     {
         Intent i = new Intent(LogInActivity.this, AllEvents.class);
         startActivity(i);
     }
 
+    //После регистрации для подтверждения почты
     private void sendEmailVer()
     {
         FirebaseUser user = mAuth.getCurrentUser();
@@ -172,11 +180,6 @@ public class LogInActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Send email failed", Toast.LENGTH_SHORT).show();
                 }
         });
-    }
-
-    public FirebaseAuth getmAuth()
-    {
-        return this.mAuth;
     }
 
 }
