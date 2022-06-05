@@ -4,10 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/alymb/AndroidStudioProjects/CityGO/app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="..\:/Users/alymb/AndroidStudioProjects/CityGO/app/src/main/res/layout/all_events.xml" value="0.33" />
+        <entry key="..\:/Users/alymb/AndroidStudioProjects/CityGO/app/src/main/res/layout/all_events.xml" value="0.25" />
         <entry key="..\:/Users/alymb/AndroidStudioProjects/CityGO/app/src/main/res/layout/all_events1.xml" value="0.33" />
         <entry key="..\:/Users/alymb/AndroidStudioProjects/CityGO/app/src/main/res/layout/event.xml" value="0.3625" />
+        <entry key="..\:/Users/alymb/AndroidStudioProjects/CityGO/app/src/main/res/layout/gmaps.xml" value="0.29743589743589743" />
+        <entry key="..\:/Users/alymb/AndroidStudioProjects/CityGO/app/src/main/res/layout/google_maps.xml" value="0.28504273504273503" />
         <entry key="..\:/Users/alymb/AndroidStudioProjects/CityGO/app/src/main/res/layout/login_layout.xml" value="0.25" />
+        <entry key="..\:/Users/alymb/AndroidStudioProjects/CityGO/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25" />
       </map>
     </option>
   </component>

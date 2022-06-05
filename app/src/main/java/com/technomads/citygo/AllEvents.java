@@ -1,6 +1,6 @@
 package com.technomads.citygo;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,9 +11,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,14 +26,15 @@ import java.util.ArrayList;
 
 public class AllEvents extends AppCompatActivity {
 
-    private Button show_map, addEvent, addEventSubmit;
-    private EditText new_event_title, new_event_time, new_event_desc;
+    private Button search_event_btn, show_map, addEvent, addEventSubmit, menu, signOut, exit;
+    private EditText search_event_field, new_event_title, new_event_time, new_event_desc;
     private DatabaseReference myRef;
     private String EVENT = "Event";
-    private LinearLayout add_event_layout;
+    private LinearLayout add_event_layout, menu_layout;
     private RecyclerView recyclerView;
     private MyAdapter myAdapter;
     private ArrayList<Event> list;
+    private int new_event_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,6 +45,10 @@ public class AllEvents extends AppCompatActivity {
         show_map.setOnClickListener(this::onShowMap);
         addEvent.setOnClickListener(this::addNewEvent);
         addEventSubmit.setOnClickListener(this::setAddEventSubmit);
+        search_event_btn.setOnClickListener(this::searchEvent);
+        menu.setOnClickListener(this::menu);
+        signOut.setOnClickListener(this::signOut);
+        exit.setOnClickListener(this::exit);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -65,10 +72,16 @@ public class AllEvents extends AppCompatActivity {
 
             }
         });
-
+        new_event_id = list.size();
     }
     private void init()
     {
+        menu_layout = findViewById(R.id.menu_linear_layout);
+        menu = findViewById(R.id.menu);
+        signOut = findViewById(R.id.signOut);
+        exit = findViewById(R.id.exit);
+        search_event_field = findViewById(R.id.search_field);
+        search_event_btn = findViewById(R.id.search);
         myRef = FirebaseDatabase.getInstance().getReference(EVENT);
         new_event_desc = findViewById(R.id.event_desc);
         add_event_layout = findViewById(R.id.add_event_layout);
@@ -82,7 +95,7 @@ public class AllEvents extends AppCompatActivity {
 
     private void onShowMap(View view)
     {
-        startActivity(new Intent(AllEvents.this, MainActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     private void addNewEvent(View view)
@@ -95,7 +108,7 @@ public class AllEvents extends AppCompatActivity {
         if(new_event_title.getText().toString() != "" && new_event_time.getText().toString() != "" && new_event_desc.getText().toString() != "")
         {
             list.clear();
-            Event event = new Event(new_event_title.getText().toString(), new_event_time.getText().toString(), new_event_desc.getText().toString());
+            Event event = new Event(new_event_title.getText().toString(), new_event_time.getText().toString(), new_event_desc.getText().toString(), new_event_id);
             myRef.push().setValue(event);
             new_event_title.setText("");
             new_event_time.setText("");
@@ -107,6 +120,53 @@ public class AllEvents extends AppCompatActivity {
             Toast.makeText(AllEvents.this, "Something went wrong!", Toast.LENGTH_LONG).show();
         }
         add_event_layout.setVisibility(View.GONE);
+    }
+
+    private void searchEvent(View view)
+    {
+        ArrayList<Event> search_list = new ArrayList<>();
+        for(Event event: list)
+        {
+            if((event.getEvent_desc() + event.getEvent_title()).contains(search_event_field.getText().toString()))
+            {
+                search_list.add(event);
+            }
+        }
+        search_event_btn.setText("Back");
+        search_event_btn.setOnClickListener(this::backSearch);
+        myAdapter = new MyAdapter(this, search_list);
+        recyclerView.setAdapter(myAdapter);
+    }
+
+    private void backSearch(View view)
+    {
+        search_event_btn.setText(R.string.search_button);
+        search_event_btn.setOnClickListener(this::searchEvent);
+        myAdapter = new MyAdapter(this, list);
+        recyclerView.setAdapter(myAdapter);
+    }
+
+    private void menu(View view)
+    {
+        if(menu_layout.getVisibility() != View.VISIBLE)
+        {
+            menu_layout.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            menu_layout.setVisibility(View.GONE);
+        }
+    }
+
+    private void signOut(View view)
+    {
+        FirebaseAuth.getInstance().signOut();
+        System.exit(0);
+    }
+
+    private void exit(View view)
+    {
+        finish();
     }
 
 }

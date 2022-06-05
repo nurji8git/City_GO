@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onShowEvents(View view)
     {
-        Intent i = new Intent(this, AllEvents.class);
-        startActivity(i);
+        System.exit(0);
     }
 }

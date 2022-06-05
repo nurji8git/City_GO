@@ -60,7 +60,6 @@ public class LogInActivity extends AppCompatActivity {
             tvUserName.setText(userName);
             showSignedIn();
 
-
             Toast.makeText(this, "User not null", Toast.LENGTH_SHORT).show();
         }
         else
@@ -155,7 +154,7 @@ public class LogInActivity extends AppCompatActivity {
 
     public void onClickStart(View view)
     {
-        Intent i = new Intent(LogInActivity.this, MainActivity.class);
+        Intent i = new Intent(LogInActivity.this, AllEvents.class);
         startActivity(i);
     }
 
@@ -173,6 +172,11 @@ public class LogInActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Send email failed", Toast.LENGTH_SHORT).show();
                 }
         });
+    }
+
+    public FirebaseAuth getmAuth()
+    {
+        return this.mAuth;
     }
 
 }

@@ -11,6 +11,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="77dp"
+        android:background="#FFC107"
         android:gravity="center"
         android:orientation="horizontal"
         android:visibility="visible"
@@ -36,7 +37,8 @@
             android:id="@+id/search"
             android:layout_width="80dp"
             android:layout_height="48dp"
-            android:text="@string/search_button" />
+            android:text="@string/search_button"
+            android:textColor="#FFCA28" />
 
         <Button
             android:id="@+id/menu"
@@ -136,7 +138,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Event time"
-            android:inputType="textPersonName"
+            android:inputType="time"
             android:minHeight="48dp"
             android:textColor="#575757"
             android:textColorHint="#4E342E" />
@@ -172,16 +174,47 @@
         android:contentDescription="@string/add_new_event"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="add event"
-        android:textColor="#777777"
+        android:text="@string/add_new_event"
+        android:textColor="#757575"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/add_new_event"
         app:layout_constraintTop_toTopOf="@+id/add_new_event" />
+
+    <LinearLayout
+        android:id="@+id/menu_linear_layout"
+        android:layout_width="109dp"
+        android:layout_height="104dp"
+        android:background="#FFC107"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/divider5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider4"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/signOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/signOut"
+            android:textColor="#FFCA28" />
+
+        <Button
+            android:id="@+id/exit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/exit"
+            android:textColor="#FFCA28" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

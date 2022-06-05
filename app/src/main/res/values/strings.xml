@@ -18,4 +18,6 @@
     <string name="events_recycler">Events</string>
     <string name="add_event_layout">Add event layout</string>
     <string name="add_event_submit">Submit</string>
+    <string name="im_in_check">Im in</string>
+    <string name="exit">Exit</string>
 </resources>

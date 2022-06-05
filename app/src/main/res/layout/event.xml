@@ -6,7 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#FFFFFF"
+        android:background="#FFD75E"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -54,5 +55,19 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#575757" />
+
+    <CheckBox
+        android:id="@+id/im_in_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        android:layout_marginEnd="15dp"
+        android:layout_weight="1"
+        android:background="#007C7C7C"
+        android:checked="false"
+        android:minHeight="48dp"
+        android:text="@string/im_in_check"
+        android:textColor="#000000"
+        android:textColorHint="#191919" />
 
 </androidx.cardview.widget.CardView>
