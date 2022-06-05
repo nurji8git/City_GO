@@ -4,76 +4,113 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00FFFFFF"
+    android:background="#FFFFFFFF"
     tools:context=".AllEvents">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="77dp"
+        android:gravity="center"
         android:orientation="horizontal"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/search_in_events"
+        <EditText
+            android:id="@+id/search_field"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginStart="44dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/search_button" />
-
-        <EditText
-            android:id="@+id/search_field_in_events"
-            android:layout_width="229dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="8dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/search_field"
             android:inputType="textPersonName"
-            android:minHeight="48dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/add_event_layout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/events_recycler"
-            android:layout_width="312dp"
-            android:layout_height="match_parent"
-            android:background="#B5B5B5"
-            android:contentDescription="@string/events_recycler" />
+            android:outlineProvider="none"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="#454545"
+            android:textColorHint="#595959" />
 
         <Button
-            android:id="@+id/show_events2"
-            android:layout_width="48dp"
+            android:id="@+id/search"
+            android:layout_width="80dp"
             android:layout_height="48dp"
-            android:background="@drawable/ic_arrow_btn"
-            android:contentDescription="@string/show_events"
-            android:rotation="-90"
-            android:rotationX="0"
-            android:rotationY="0" />
+            android:text="@string/search_button" />
+
+        <Button
+            android:id="@+id/menu"
+            android:layout_width="65dp"
+            android:layout_height="48dp"
+            android:text="@string/menu_button" />
 
     </LinearLayout>
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_above="@+id/add_new_event"
+        android:layout_alignParentEnd="true"
+        android:layout_weight="2"
+        android:background="#6E6E6E"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/events_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        android:contentDescription="@string/events_recycler"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/divider5"
+        app:layout_constraintEnd_toStartOf="@+id/show_events2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+    <Button
+        android:id="@+id/show_events2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/ic_arrow_btn"
+        android:contentDescription="@string/show_events"
+        android:gravity="center_vertical"
+        android:rotation="-90"
+        android:rotationX="0"
+        android:rotationY="0"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/divider5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="393dp"
+        android:layout_height="1dp"
+        android:layout_above="@+id/add_new_event"
+        android:background="#6E6E6E"
+        android:rotation="0"
+        android:rotationY="0"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/add_event_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/add_event_layout"
-        android:layout_width="359dp"
+        android:layout_width="0dp"
         android:layout_height="234dp"
-        android:background="#A8A8A8"
+        android:background="#FFFFFF"
         android:contentDescription="@string/add_event_layout"
+        android:divider="@drawable/signup_shape"
         android:orientation="vertical"
+        android:outlineProvider="bounds"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/add_new_event"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,17 +148,22 @@
 
         <Button
             android:id="@+id/add_event_submit"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Submit" />
     </LinearLayout>
 
     <Button
         android:id="@+id/add_new_event"
-        android:layout_width="128dp"
-        android:layout_height="43dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignStart="@+id/linearLayout"
+        android:layout_alignParentEnd="true"
         android:layout_weight="1"
-        android:text="@string/add_new_event"
+        android:background="@android:drawable/ic_input_add"
+        android:contentDescription="@string/add_new_event"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

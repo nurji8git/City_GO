@@ -24,8 +24,8 @@ import java.util.ArrayList;
 
 public class AllEvents extends AppCompatActivity {
 
-    private Button show_map, search_in_events, addEvent, addEventSubmit;
-    private EditText search_field, new_event_title, new_event_time, new_event_desc;
+    private Button show_map, addEvent, addEventSubmit;
+    private EditText new_event_title, new_event_time, new_event_desc;
     private DatabaseReference myRef;
     private String EVENT = "Event";
     private LinearLayout add_event_layout;
@@ -51,6 +51,7 @@ public class AllEvents extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
                 for(DataSnapshot dataSnapshot: snapshot.getChildren())
                 {
                     Event event1 = dataSnapshot.getValue(Event.class);
@@ -75,8 +76,6 @@ public class AllEvents extends AppCompatActivity {
         new_event_title = findViewById(R.id.event_title);
         new_event_time = findViewById(R.id.event_time);
         show_map = findViewById(R.id.show_events2);
-        search_in_events = findViewById(R.id.search_in_events);
-        search_field = findViewById(R.id.search_field_in_events);
         addEvent = findViewById(R.id.add_new_event);
         recyclerView = findViewById(R.id.events_recycler);
     }
